@@ -1,0 +1,58 @@
+nic_model_generation:
+  Mellanox:
+    - { keyword: "ConnectX-7", family: "ConnectX-7", rank: 80 }
+    - { keyword: "BlueField-3", family: "BlueField-3", rank: 75 }
+    - { keyword: "ConnectX-6 Dx", family: "ConnectX-6 Dx", rank: 70 }
+    - { keyword: "ConnectX-6 Lx", family: "ConnectX-6 Lx", rank: 65 }
+    - { keyword: "ConnectX-6", family: "ConnectX-6", rank: 60 }
+    - { keyword: "ConnectX-5", family: "ConnectX-5", rank: 50 }
+    - { keyword: "ConnectX-4", family: "ConnectX-4", rank: 40 }
+
+  NVIDIA:
+    - { keyword: "ConnectX-7", family: "ConnectX-7", rank: 80 }
+    - { keyword: "BlueField-3", family: "BlueField-3", rank: 76 }
+    - { keyword: "MCX755", family: "ConnectX-7 Related", rank: 74 }
+    - { keyword: "MCX753", family: "ConnectX-7 Related", rank: 72 }
+    - { keyword: "MCX623", family: "ConnectX-6 Related", rank: 62 }
+    - { keyword: "MCX631", family: "ConnectX-6 Related", rank: 61 }
+
+  Broadcom:
+    - { keyword: "57508", family: "57508", rank: 68 }
+    - { keyword: "57504", family: "57504", rank: 64 }
+    - { keyword: "57414", family: "57414", rank: 50 }
+    - { keyword: "5719", family: "5719", rank: 30 }
+
+  Intel:
+    - { keyword: "E810", family: "E810", rank: 70 }
+    - { keyword: "X710", family: "X710", rank: 45 }
+    - { keyword: "I350", family: "I350", rank: 20 }
+
+  3SNIC:
+    - { keyword: "3SC10", family: "3SC10", rank: 40 }
+    - { keyword: "82599ES", family: "82599ES", rank: 25 }
+
+  defaults:
+    unknown_vendor_rank: 0
+    unknown_model_rank: 0
+
+os_generation_map:
+  Windows Server2022: WS2022
+  Windows Server2025: WS2025
+  RHEL 9.5: RHEL9
+  RHEL 9.6: RHEL9
+  RHEL 10: RHEL10
+  Ubuntu 22.04.5 HWE（Kernel V6.8）: Ubuntu22
+  Ubuntu 24.04.2: Ubuntu24
+
+capacity_priority:
+  defaults:
+    unit_order:
+      TB: 2
+      GB: 1
+    prefer_larger_capacity: true
+  SSD:
+    order: [15.36TB, 7.68TB, 3.84TB, 1.92TB, 960GB, 480GB, 240GB]
+  HDD:
+    order: [20TB, 16TB, 12TB, 8TB, 4TB, 2.4TB, 1.2TB]
+
+pn_regex: '\b[A-Z]{2,4}\d[A-Z0-9]{5,}\b'
